@@ -1,3 +1,5 @@
+"use client";
+
 import { Metadata } from "next";
 import Image from "next/image";
 import { HeroSection } from "@/components/sections/hero-section";

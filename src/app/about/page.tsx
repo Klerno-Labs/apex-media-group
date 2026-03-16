@@ -1,131 +1,86 @@
 import { Metadata } from "next";
-import { HeroSection } from "@/components/sections/hero-section";
-import { ProcessStep } from "@/components/sections/process-step";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { images } from "@/config/images";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about Apex Media Group's mission, our transparent process, and the team behind the magic.",
+  description: "Learn more about Apex Media Group, our team, and our process.",
 };
 
 export default function AboutPage() {
+  const processSteps = [
+    { step: "01", title: "Discovery", desc: "We deep-dive into your business, market, and goals to create a strategic roadmap." },
+    { step: "02", title: "Strategy", desc: "We define the architecture, content, and design systems that will drive success." },
+    { step: "03", title: "Execution", desc: "Our designers and developers build your solution with pixel-perfect precision." },
+    { step: "04", title: "Growth", desc: "Launch is just the beginning. We optimize and iterate for continuous growth." }
+  ];
+
+  const team = [
+    { name: "Alex Morgan", role: "CEO & Founder", img: images["team-1"] },
+    { name: "Jordan Lee", role: "Creative Director", img: images["team-1"] },
+    { name: "Casey Smith", role: "Lead Developer", img: images["team-1"] },
+    { name: "Taylor Doe", role: "Marketing Strategist", img: images["team-1"] },
+  ];
+
   return (
-    <>
-      <HeroSection
-        variant="about"
-        title="We are Apex."
-        subtitle="A collective of strategists, designers, and engineers obsessed with digital excellence."
-        primaryLabel="Join the Team"
-        primaryHref="/contact"
-      />
-
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-[5%]">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
-                <img
-                  src={images["about"].src}
-                  alt={images["about"].alt} style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
-              </div>
-              {/* Decorative element */}
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/20 rounded-full blur-3xl -z-10" />
-            </div>
-
-            <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-white">
-                Our mission is simple: <span className="text-primary">Growth.</span>
-              </h2>
-              <p className="text-lg text-zinc-400 leading-relaxed">
-                Founded in Houston, TX, Apex Media Group was born out of a frustration with the status quo. Too many agencies were focused on awards, not results. We flipped the script.
-              </p>
-              <p className="text-lg text-zinc-400 leading-relaxed">
-                Today, we are a team of 25+ diverse talents working with brands across the globe to build digital products that people actually use and love.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-8 pt-8 border-t border-zinc-800">
-                <div>
-                  <div className="text-3xl font-bold text-white mb-1">5+ Years</div>
-                  <div className="text-sm text-zinc-500">Of Excellence</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-white mb-1">150+</div>
-                  <div className="text-sm text-zinc-500">Projects Launched</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-32 bg-zinc-950">
-        <div className="container mx-auto px-[5%]">
-          <div className="mb-20">
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">How we work</h2>
-            <p className="text-xl text-zinc-400 max-w-2xl">
-              A transparent, collaborative process designed to eliminate surprises and maximize output.
+    <main className="pt-32 pb-24 bg-zinc-950 min-h-screen">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        {/* Hero */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+          <div>
+            <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">We are Apex.</h1>
+            <p className="text-xl text-zinc-400 leading-relaxed mb-8">
+              Founded in Houston, TX, Apex Media Group is a collective of strategists, designers, and engineers obsessed with digital perfection. We believe that exceptional design isn't just about aesthetics—it's about solving problems and driving measurable business results.
             </p>
+            <div className="flex gap-4">
+               <Button asChild><Link href="/contact">Work With Us</Link></Button>
+               <Button variant="outline" asChild><Link href="/#work">View Portfolio</Link></Button>
+            </div>
           </div>
-
-          <div className="relative max-w-4xl">
-            <ProcessStep 
-              step={1} 
-              title="Discovery" 
-              description="We dive deep into your business model, audience, and goals to build a foundation for success."
-              isActive
-            />
-            <ProcessStep 
-              step={2} 
-              title="Strategy & Design" 
-              description="We map out the user journey and create high-fidelity designs that align with your brand."
-            />
-            <ProcessStep 
-              step={3} 
-              title="Development" 
-              description="Our engineers bring designs to life using modern tech stacks optimized for performance."
-            />
-            <ProcessStep 
-              step={4} 
-              title="Growth & Scale" 
-              description="Launch isn't the end. We iterate, optimize, and scale your digital presence."
-            />
+          <div className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-zinc-800">
+            <Image src={images["about"].src} alt="Apex Team" fill className="object-cover" />
           </div>
         </div>
-      </section>
-      
-      {/* Simple Team Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-[5%]">
-          <h2 className="text-3xl font-display font-bold mb-12 text-center">Leadership</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              { name: "Sarah Jenkins", role: "CEO & Founder", bio: "Former VP of Marketing at TechCorp. 15 years in digital." },
-              { name: "David Chen", role: "CTO", bio: "Full-stack architect passionate about scalable systems." },
-              { name: "Marcus Johnson", role: "Creative Director", bio: "Award-winning designer with a focus on brutalist aesthetics." },
-            ].map((member, i) => (
-              <div key={i} className="text-center p-6 rounded-2xl bg-surface border border-zinc-800 hover:border-zinc-700 transition-colors">
-                <div className="w-24 h-24 mx-auto bg-zinc-700 rounded-full mb-4 overflow-hidden">
-                   {/* Placeholder avatar using solid color or pattern since specific avatar images were limited in prompt */}
-                   <img 
-                     src={`https://i.pravatar.cc/300?img=${i + 10}`} 
-                     alt={member.name}
-                     width={100}
-                     height={100}
-                     className="w-full h-full object-cover"
-                   />
+
+        {/* Process */}
+        <div className="mb-32">
+          <h2 className="text-3xl font-bold text-white mb-16 text-center">Our Process</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {processSteps.map((p, i) => (
+              <div key={i} className="relative">
+                <div className="text-8xl font-display font-bold text-zinc-800 absolute -top-10 -left-4 select-none -z-10">
+                  {p.step}
                 </div>
-                <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                <p className="text-primary text-sm mb-2">{member.role}</p>
-                <p className="text-zinc-500 text-sm">{member.bio}</p>
+                <h3 className="text-2xl font-bold text-white mb-4">{p.title}</h3>
+                <p className="text-zinc-400">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
-      </section>
-    </>
-  );
+
+        {/* Team */}
+        <div>
+           <h2 className="text-3xl font-bold text-white mb-16 text-center">The Team</h2>
+           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+             {team.map((member, i) => (
+               <div key={i} className="text-center group">
+                 <div className="relative aspect-square rounded-2xl overflow-hidden mb-4 border border-zinc-800">
+                    <Image 
+                      src={member.img.src} 
+                      alt={member.name} 
+                      fill 
+                      className="object-cover transition-transform duration-500 group-hover:scale-110" 
+                    />
+                 </div>
+                 <div className="text-white font-bold">{member.name}</div>
+                 <div className="text-zinc-500 text-sm">{member.role}</div>
+               </div>
+             ))}
+           </div>
+        </div>
+      </div>
+    </main>
+  )
 }

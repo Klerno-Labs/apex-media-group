@@ -2,23 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 244, 244, 245;
-  --background-start-rgb: 9, 9, 11;
-  --background-end-rgb: 9, 9, 11;
-  --radius: 0.5rem;
+@layer base {
+  :root {
+    --background: 0 0% 4%; /* #0a0a0a */
+    --foreground: 0 0% 96%; /* #f4f4f5 */
+    --card: 240 5% 11%; /* #18181b */
+    --card-foreground: 0 0% 96%;
+    --popover: 240 5% 11%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 221 83% 53%; /* #3b82f6 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 258 90% 66%; /* #8b5cf6 */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 5% 65%; /* #a1a1aa */
+    --muted-foreground: 240 5% 65%;
+    --accent: 84 100% 50%; /* #ccff00 */
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 16%; /* #27272a */
+    --input: 240 4% 16%;
+    --ring: 221 83% 53%;
+    --radius: 0.5rem;
+  }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  min-height: 100vh;
-  antialiased;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-accent selection:text-accent-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Custom Scrollbar */
@@ -36,16 +59,19 @@ body {
   background: #3b82f6;
 }
 
-/* Focus visible for accessibility */
-*:focus-visible {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
-}
-
-/* Glassmorphism utility */
+/* Utility: Glassmorphism */
 .glass {
-  background: rgba(24, 24, 27, 0.6);
+  background: rgba(9, 9, 11, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Hide scrollbar for horizontal scrolling components */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

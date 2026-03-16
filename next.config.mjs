@@ -1,2 +1,13 @@
-// This file intentionally left empty — see next.config.js for the real config
-module.exports = {};
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
+  },
+}
+
+export default nextConfig

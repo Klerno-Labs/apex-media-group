@@ -1,10 +1,2 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: "export",
-  basePath: "/apex-media-group",
-  images: { unoptimized: true },
-  typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
-};
-
-export default nextConfig;
+// This file intentionally left empty — see next.config.js for the real config
+module.exports = {};

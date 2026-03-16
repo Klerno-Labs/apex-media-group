@@ -1,5 +1,3 @@
-"use client";
-
 import { Metadata } from "next";
 import { HeroSection } from "@/components/sections/hero-section";
 import { LogoMarquee } from "@/components/sections/logo-marquee";
@@ -63,7 +61,7 @@ export default function Home() {
               Services that drive impact
             </h2>
             <p className="text-xl text-zinc-400">
-              We don&apos;t just build websites; we build comprehensive digital ecosystems designed to convert.
+              We don't just build websites; we build comprehensive digital ecosystems designed to convert.
             </p>
           </div>
 

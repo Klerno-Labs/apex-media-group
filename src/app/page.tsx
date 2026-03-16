@@ -1,5 +1,3 @@
-"use client";
-
 import { Metadata } from "next";
 import { HeroSection } from "@/components/sections/hero-section";
 import { LogoMarquee } from "@/components/sections/logo-marquee";

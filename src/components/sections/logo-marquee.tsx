@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 // Using generic logo placeholders for demo since no real client URLs provided

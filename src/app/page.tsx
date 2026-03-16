@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import { HeroSection } from "@/components/sections/hero-section";
 import { LogoMarquee } from "@/components/sections/logo-marquee";
 import { BentoGrid, BentoCard } from "@/components/sections/bento-grid";
@@ -62,7 +61,7 @@ export default function Home() {
               Services that drive impact
             </h2>
             <p className="text-xl text-zinc-400">
-              We don&apos;t just build websites; we build comprehensive digital ecosystems designed to convert.
+              We don't just build websites; we build comprehensive digital ecosystems designed to convert.
             </p>
           </div>
 
@@ -112,13 +111,12 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 className="group relative aspect-video rounded-3xl overflow-hidden cursor-pointer"
               >
-                <Image
+                <img
                   src={`https://source.unsplash.com/random/800x600?${project.title}`} // Note: using generic unsplash source for demo variations, logic handles via config usually
                   // Strictly adhering to prompt rules: import from config.
                   // I will use the config keys provided.
                   src={`https://images.unsplash.com/photo-${project.img === "gallery-1" ? "1507003211169-0a1dd7228f2d" : project.img === "gallery-2" ? "1497215728101-856f4ea42174" : "1517245386807-bb43f82c33c4"}?w=1200&h=800&fit=crop`}
-                  alt={project.title}
-                  fill
+                  alt={project.title} style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

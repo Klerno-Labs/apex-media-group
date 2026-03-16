@@ -1,7 +1,4 @@
-"use client";
-
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { images } from "@/config/images";
 import { cn } from "@/lib/utils";
@@ -38,13 +35,10 @@ export function HeroSection({
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background z-10" />
-        <Image
+        <img
           src={images[imageKey].src}
-          alt={images[imageKey].alt}
-          fill
-          priority={isHome}
+          alt={images[imageKey].alt} style={{ width: "100%", height: "100%", objectFit: "cover" }}={isHome}
           className="object-cover object-center"
-          quality={90}
         />
       </div>
 
@@ -97,7 +91,7 @@ export function HeroSection({
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-white/50"
         >
           <div className="animate-bounce">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="24" height="24" viewBox="0 0 24 24" style={{ width: "100%", height: "100%", objectFit: "cover" }}="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
             </svg>
           </div>

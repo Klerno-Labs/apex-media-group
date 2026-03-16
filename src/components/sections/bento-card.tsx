@@ -1,7 +1,4 @@
-"use client";
-
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { images } from "@/config/images";
 import { cn } from "@/lib/utils";
@@ -29,10 +26,9 @@ export function BentoCard({ title, description, imageKey, className, span = "col
     >
       {imageKey && (
         <div className="absolute inset-0 z-0 opacity-40 group-hover:scale-105 transition-transform duration-700 ease-in-out">
-          <Image
+          <img
             src={images[imageKey].src}
-            alt={images[imageKey].alt}
-            fill
+            alt={images[imageKey].alt} style={{ width: "100%", height: "100%", objectFit: "cover" }}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />

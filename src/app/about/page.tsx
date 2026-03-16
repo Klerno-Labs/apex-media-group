@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ProcessStep } from "@/components/sections/process-step";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { images } from "@/config/images";
 
 export const metadata: Metadata = {
@@ -26,10 +25,9 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
-                <Image
+                <img
                   src={images["about"].src}
-                  alt={images["about"].alt}
-                  fill
+                  alt={images["about"].alt} style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
@@ -112,7 +110,7 @@ export default function AboutPage() {
               <div key={i} className="text-center p-6 rounded-2xl bg-surface border border-zinc-800 hover:border-zinc-700 transition-colors">
                 <div className="w-24 h-24 mx-auto bg-zinc-700 rounded-full mb-4 overflow-hidden">
                    {/* Placeholder avatar using solid color or pattern since specific avatar images were limited in prompt */}
-                   <Image 
+                   <img 
                      src={`https://i.pravatar.cc/300?img=${i + 10}`} 
                      alt={member.name}
                      width={100}

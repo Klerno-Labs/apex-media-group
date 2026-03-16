@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Button } from "./button";
 import { images } from "@/config/images";
 
@@ -6,10 +5,9 @@ export function CtaStrip() {
   return (
     <section className="relative py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <Image 
+        <img 
           src={images["cta"].src}
-          alt={images["cta"].alt}
-          fill
+          alt={images["cta"].alt} style={{ width: "100%", height: "100%", objectFit: "cover" }}
           className="object-cover"
         />
         <div className="absolute inset-0 bg-primary/90 backdrop-blur-sm" />

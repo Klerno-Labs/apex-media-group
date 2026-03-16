@@ -1,15 +1,2 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-    ],
-  },
-};
-
-module.exports = nextConfig;
+// This file intentionally left empty — see next.config.mjs for the real config
+module.exports = {};

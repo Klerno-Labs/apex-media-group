@@ -1,50 +1,99 @@
 import { Metadata } from "next";
-import { images } from "@/config/images";
-import ROICalculator from "@/components/sections/ROICalculator";
+import { HeroSection } from "@/components/sections/hero-section";
+import { BentoGrid, BentoCard } from "@/components/sections/bento-grid";
+import { ROICalculator } from "@/components/sections/roi-calculator";
+import { CtaStrip } from "@/components/sections/cta-strip";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"; // Radix UI Accordion
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Explore our full suite of digital services including strategy, design, development, and marketing.",
+  description: "Explore our comprehensive digital services including Web Design, SEO, PPC, and Brand Strategy.",
 };
 
 export default function ServicesPage() {
   return (
-    <main>
-      <section className="pt-16 pb-24 bg-background px-[5%]">
-        <div className="max-w-[1400px] mx-auto">
-          <h1 className="font-heading text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">What we do.</h1>
-          <p className="text-xl text-muted max-w-3xl">
-            End-to-end digital solutions designed to grow your revenue and brand authority.
-          </p>
+    <>
+      <HeroSection
+        variant="minimal"
+        title="Capabilities"
+        subtitle="End-to-end digital solutions tailored for growth."
+      />
+
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-[5%]">
+          <BentoGrid>
+            <BentoCard
+              span="col-span-1 md:col-span-2 row-span-2"
+              title="Custom Web Development"
+              description="Next.js, React, and Headless CMS solutions. We build fast, secure, and scalable websites that perform."
+              imageKey="service-1"
+            />
+            <BentoCard
+              span="col-span-1"
+              title="Search Engine Optimization"
+              description="Technical SEO, content strategy, and link building to get you ranking #1."
+              imageKey="service-2"
+            />
+            <BentoCard
+              span="col-span-1"
+              title="Paid Media (PPC)"
+              description="High-ROI campaigns on Google Ads and Facebook Ads. We focus on lowering CPA while increasing volume."
+              imageKey="service-3"
+            />
+            <BentoCard
+              span="col-span-1"
+              title="Email Marketing"
+              description="Automated flows and newsletters that nurture leads and drive retention."
+            />
+            <BentoCard
+              span="col-span-1 md:col-span-2"
+              title="Brand Strategy"
+              description="Positioning, messaging, and visual identity systems that differentiate you from competitors."
+            />
+          </BentoGrid>
         </div>
       </section>
 
-      <section className="py-24 bg-surface/30">
-        <div className="max-w-[1400px] mx-auto px-[5%]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-24 bg-zinc-950">
+        <div className="container mx-auto px-[5%] max-w-5xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">ROI Calculator</h2>
+            <p className="text-xl text-zinc-400">Get an instant estimate of your potential return on investment.</p>
+          </div>
+          <ROICalculator />
+        </div>
+      </section>
+
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-[5%] max-w-3xl">
+          <h2 className="text-3xl font-display font-bold mb-12 text-center">Frequently Asked Questions</h2>
+          
+          <div className="space-y-4">
             {[
-              { title: "Digital Strategy", img: "service-1", desc: "We analyze market trends and competitor data to build a roadmap that ensures your digital investment yields maximum returns." },
-              { title: "Web Development", img: "service-2", desc: "From custom React applications to headless CMS solutions, our code is clean, fast, and secure." },
-              { title: "Brand Identity", img: "service-3", desc: "Logo design, visual systems, and brand guidelines that tell your story consistently across all channels." },
-              { title: "SEO & Analytics", img: "gallery-1", desc: "Technical SEO audits and content strategies that improve your organic visibility and drive qualified traffic." },
-              { title: "Paid Media", img: "gallery-2", desc: "PPC and social ad campaigns managed with precision to lower CPA and increase ROAS." },
-              { title: "App Development", img: "gallery-3", desc: "Native and cross-platform mobile applications that extend your reach to customers on the go." },
-            ].map((service, i) => (
-              <div key={i} className="group bg-background border border-border rounded-2xl overflow-hidden hover:border-primary transition-all">
-                <div className="aspect-video overflow-hidden">
-                   <img src={images[service.img as keyof typeof images].src} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                </div>
-                <div className="p-8">
-                  <h3 className="font-heading text-2xl font-bold text-white mb-4">{service.title}</h3>
-                  <p className="text-muted leading-relaxed">{service.desc}</p>
-                </div>
+              { q: "How long does a web project take?", a: "Typical timelines are 6-10 weeks for a standard business website, and 12-16 weeks for complex web applications." },
+              { q: "Do you work with startups?", a: "Yes, we love working with ambitious startups. We offer flexible engagement models tailored to early-stage budgets." },
+              { q: "What CMS do you use?", a: "We are experts in Sanity.io, Contentful, and WordPress. We recommend the best tool based on your specific content needs." },
+              { q: "Do you offer ongoing support?", a: "Absolutely. We offer retainer packages for maintenance, updates, and continued optimization." },
+            ].map((item, i) => (
+              <div key={i} className="border border-zinc-800 rounded-xl bg-surface overflow-hidden">
+                <details className="group">
+                  <summary className="flex justify-between items-center p-6 cursor-pointer list-none">
+                    <span className="font-medium text-white">{item.q}</span>
+                    <span className="transition group-open:rotate-180">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                    </span>
+                  </summary>
+                  <div className="px-6 pb-6 text-zinc-400 leading-relaxed">
+                    {item.a}
+                  </div>
+                </details>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <ROICalculator />
-    </main>
+      <CtaStrip />
+    </>
   );
 }

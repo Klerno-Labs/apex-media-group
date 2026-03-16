@@ -8,15 +8,8 @@ export const siteConfig = {
     linkedin: "https://linkedin.com",
   },
   contact: {
-    email: "info@apexmediagroup.com",
+    email: "showcase@pegrio.com",
     phone: "(713) 555-0198",
-    address: "4521 Westheimer Rd, Suite 200, Houston, TX 77027",
-  },
-  navItems: [
-    { title: "Home", href: "/" },
-    { title: "Work", href: "/#work" },
-    { title: "Services", href: "/services" },
-    { title: "About", href: "/about" },
-    { title: "Contact", href: "/contact" },
-  ],
+    address: "4521 Westheimer Rd, Suite 200\nHouston, TX 77027",
+  }
 };

@@ -1,98 +1,82 @@
-import ContactForm from "@/components/sections/ContactForm";
-import { MapPin, Mail, Phone } from "lucide-react";
-import siteConfig from "@/config/site";
+import { Metadata } from "next";
+import { HeroSection } from "@/components/sections/hero-section";
+import ContactForm from "./contact-form";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with Apex Media Group to start your next project.",
+  description: "Get in touch with Apex Media Group. Let's discuss your next project.",
 };
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen pt-16">
-      <section className="py-24 bg-background px-[5%]">
-        <div className="max-w-[1400px] mx-auto mb-16 text-center">
-          <h1 className="font-heading text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">Let's Talk.</h1>
-          <p className="text-xl text-muted">Ready to elevate your digital presence? Fill out the form below or reach out directly.</p>
-        </div>
-      </section>
+    <>
+      <HeroSection
+        variant="minimal"
+        title="Let's Talk"
+        subtitle="Have a project in mind? We'd love to hear about it."
+      />
 
-      <section className="pb-24 bg-surface/30 px-[5%]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-          
-          {/* Contact Info */}
-          <div className="space-y-12">
-            <div>
-              <h2 className="font-heading text-3xl font-bold text-white mb-6">Contact Information</h2>
-              <p className="text-muted text-lg mb-8">
-                We are currently accepting new projects for Q1 2025. Reach out to secure your spot in our schedule.
-              </p>
-              
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-full text-primary">
-                    <Mail className="w-6 h-6" />
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-[5%]">
+          <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
+            
+            {/* Info */}
+            <div className="space-y-12">
+              <div>
+                <h2 className="text-3xl font-display font-bold mb-6">Contact Information</h2>
+                <p className="text-zinc-400 text-lg leading-relaxed">
+                  Fill out the form and our team will get back to you within 24 hours.
+                </p>
+              </div>
+
+              <div className="space-y-8">
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-full bg-surface border border-zinc-800 flex items-center justify-center text-primary shrink-0">
+                    <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted font-mono uppercase mb-1">Email</div>
-                    <a href={`mailto:${siteConfig.contact.email}`} className="text-xl text-white hover:text-primary transition-colors">
+                    <h3 className="text-white font-medium mb-1">Email</h3>
+                    <a href={`mailto:${siteConfig.contact.email}`} className="text-zinc-400 hover:text-white transition-colors">
                       {siteConfig.contact.email}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-full text-primary">
-                    <Phone className="w-6 h-6" />
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-full bg-surface border border-zinc-800 flex items-center justify-center text-primary shrink-0">
+                    <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted font-mono uppercase mb-1">Phone</div>
-                    <a href={`tel:${siteConfig.contact.phone}`} className="text-xl text-white hover:text-primary transition-colors">
+                    <h3 className="text-white font-medium mb-1">Phone</h3>
+                    <a href={`tel:${siteConfig.contact.phone}`} className="text-zinc-400 hover:text-white transition-colors">
                       {siteConfig.contact.phone}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/10 rounded-full text-primary">
-                    <MapPin className="w-6 h-6" />
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-full bg-surface border border-zinc-800 flex items-center justify-center text-primary shrink-0">
+                    <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted font-mono uppercase mb-1">Office</div>
-                    <address className="text-xl text-white not-italic leading-relaxed">
+                    <h3 className="text-white font-medium mb-1">Office</h3>
+                    <p className="text-zinc-400 whitespace-pre-line">
                       {siteConfig.contact.address}
-                    </address>
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-background border border-border p-8 rounded-2xl">
-              <h3 className="font-heading text-xl font-bold text-white mb-4">Business Hours</h3>
-              <ul className="space-y-2 text-muted">
-                <li className="flex justify-between">
-                  <span>Mon - Fri</span>
-                  <span className="text-white">8:00 AM - 6:00 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Saturday</span>
-                  <span className="text-white">9:00 AM - 2:00 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Sunday</span>
-                  <span className="text-white">Closed</span>
-                </li>
-              </ul>
+            {/* Form */}
+            <div className="bg-surface p-8 rounded-3xl border border-zinc-800">
+              <ContactForm />
             </div>
           </div>
-
-          {/* Form */}
-          <div className="bg-background border border-border p-8 md:p-12 rounded-3xl shadow-xl">
-            <ContactForm />
-          </div>
-
         </div>
       </section>
-    </main>
+    </>
   );
 }

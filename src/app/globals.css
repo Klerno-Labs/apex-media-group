@@ -6,6 +6,7 @@
   --foreground-rgb: 244, 244, 245;
   --background-start-rgb: 9, 9, 11;
   --background-end-rgb: 9, 9, 11;
+  --radius: 0.5rem;
 }
 
 body {
@@ -16,7 +17,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-  background-color: #09090b;
+  min-height: 100vh;
+  antialiased;
 }
 
 /* Custom Scrollbar */
@@ -34,21 +36,16 @@ body {
   background: #3b82f6;
 }
 
-/* Base Styles */
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  * {
-    @apply border-border;
-  }
-  
-  body {
-    @apply bg-background text-text font-body antialiased;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
-  }
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(24, 24, 27, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }

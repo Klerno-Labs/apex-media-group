@@ -1,5 +1,3 @@
-"use client";
-
 import { Metadata } from "next";
 import Image from "next/image";
 import { HeroSection } from "@/components/sections/hero-section";
@@ -64,7 +62,7 @@ export default function Home() {
               Services that drive impact
             </h2>
             <p className="text-xl text-zinc-400">
-              We don't just build websites; we build comprehensive digital ecosystems designed to convert.
+              We don&apos;t just build websites; we build comprehensive digital ecosystems designed to convert.
             </p>
           </div>
 

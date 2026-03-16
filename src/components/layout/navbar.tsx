@@ -64,7 +64,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-4">
             <Link href="/contact" className="hidden md:block">
-              <Button variant="primary" magnetic>Let's Talk</Button>
+              <Button variant="primary" magnetic>Let&apos;s Talk</Button>
             </Link>
             
             <button

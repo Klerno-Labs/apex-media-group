@@ -10,7 +10,7 @@ export default function CTA() {
           <div className="max-w-2xl">
             <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-4">Ready to Scale?</h2>
             <p className="text-blue-100 text-lg">
-              Let's discuss how Apex Media Group can accelerate your growth.
+              Let&apos;s discuss how Apex Media Group can accelerate your growth.
             </p>
           </div>
           <Link

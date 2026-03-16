@@ -50,7 +50,7 @@ export default function ContactForm() {
           <CheckCircle2 className="w-8 h-8 text-accent" />
         </div>
         <h3 className="text-2xl font-bold text-white">Message Sent!</h3>
-        <p className="text-muted">Thank you for reaching out. We'll be in touch within 24 hours.</p>
+        <p className="text-muted">Thank you for reaching out. We&apos;ll be in touch within 24 hours.</p>
         <button onClick={() => setStatus("idle")} className="text-primary hover:underline">Send another message</button>
       </div>
     );
